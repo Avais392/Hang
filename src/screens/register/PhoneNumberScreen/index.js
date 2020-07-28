@@ -118,7 +118,7 @@ class PhoneNumberScreen extends React.Component {
                 onChangeText={(phone) => {
                   this.setState({phone});
                   this.handleSendCode()
-                  console.log(phone);
+                  // console.log(phone);
                 }}
                 // maxLength={15}
                 editable={this.state.confirmResult ? false : true}></TextInput>
