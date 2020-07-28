@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "905531716313",
+    "firebase_url": "https://hang-64293.firebaseio.com",
+    "project_id": "hang-64293",
+    "storage_bucket": "hang-64293.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:905531716313:android:ebf043f3177815ae3e04c8",
+        "android_client_info": {
+          "package_name": "com.hang"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "905531716313-repu7j6lhc1vk7oer7bpga3520fohi0e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAA5T1HoxwQlxSLnnhW6gJCfseM6GSqxg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "905531716313-repu7j6lhc1vk7oer7bpga3520fohi0e.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "905531716313-dtbv02jpa7p6avt7hqthgi295j2d2g1t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.hangv1"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:905531716313:android:0b4dec3db8e75fc23e04c8",
+        "android_client_info": {
+          "package_name": "com.hangv1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "905531716313-repu7j6lhc1vk7oer7bpga3520fohi0e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAA5T1HoxwQlxSLnnhW6gJCfseM6GSqxg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "905531716313-repu7j6lhc1vk7oer7bpga3520fohi0e.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "905531716313-dtbv02jpa7p6avt7hqthgi295j2d2g1t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.hangv1"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
