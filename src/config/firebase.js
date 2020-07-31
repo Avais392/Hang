@@ -1,6 +1,6 @@
-import firebase from 'firebase';
+import * as firebase from 'firebase';
 // Your web app's Firebase configuration
-var firebaseConfig = {
+let firebaseConfig = {
   apiKey: 'AIzaSyBmu1UMl98L3VN61KqmORT8_1BSRURUohw',
   authDomain: 'hang-64293.firebaseapp.com',
   databaseURL: 'https://hang-64293.firebaseio.com',
@@ -11,9 +11,11 @@ var firebaseConfig = {
   measurementId: 'G-3K1Z94JE5Y',
 };
 // Initialize Firebase
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-}
+// let _firebase = firebase
+// if (!firebase.apps.length) {
+//   _firebase=firebase.initializeApp(firebaseConfig);
+// }
+firebase.initializeApp(firebaseConfig);
 // firebase.analytics();
 
 export default firebase;

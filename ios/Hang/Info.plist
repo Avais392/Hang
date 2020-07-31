@@ -2,6 +2,35 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+<key>NSAppleMusicUsageDescription</key>
+  <string>YOURTEXT</string>
+  <key>NSBluetoothAlwaysUsageDescription</key>
+  <string>YOURTEXT</string>
+  <key>NSBluetoothPeripheralUsageDescription</key>
+  <string>YOURTEXT</string>
+  <key>NSCalendarsUsageDescription</key>
+  <string>YOURTEXT</string>
+  <key>NSCameraUsageDescription</key>
+  <string>YOURTEXT</string>
+  <key>NSContactsUsageDescription</key>
+  <string>YOURTEXT</string>
+  
+  <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+  <string>YOURTEXT</string>
+  <key>NSLocationAlwaysUsageDescription</key>
+  <string>YOURTEXT</string>
+  <key>NSLocationWhenInUseUsageDescription</key>
+  <string>YOURTEXT</string>
+  <key>NSMicrophoneUsageDescription</key>
+  <string>YOURTEXT</string>
+  
+  <key>NSPhotoLibraryUsageDescription</key>
+  <string>YOURTEXT</string>
+  <key>NSRemindersUsageDescription</key>
+  <string>YOURTEXT</string>
+ 
+
+  
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -38,7 +67,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -53,5 +82,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array/>
 </dict>
 </plist>

@@ -13,7 +13,7 @@ import {
   Label,
 } from 'native-base';
 
-import auth from '@react-native-firebase/auth';
+// import auth from '@react-native-firebase/auth';
 import firebase from '../../../config/firebase';
 import RegisterProfile from '../../../components/RegisterProfile';
 import Button from '../../../components/Button';
@@ -24,7 +24,7 @@ import assets from '../../../assets';
 import styles from './styles';
 
 const {splash} = assets.images;
-// let appVerifier = firebase.auth().ver;
+let appVerifier;
 
 class PhoneNumberScreen extends React.Component {
   state = {
@@ -32,6 +32,7 @@ class PhoneNumberScreen extends React.Component {
     confirmResult: null,
     verificationCode: '',
     userId: '',
+    OTP: '',
   };
   validatePhoneNumber = () => {
     var regexp = /^\+[0-9]?()[0-9](\s|\S)(\d[0-9]{8,16})$/;
@@ -59,14 +60,16 @@ class PhoneNumberScreen extends React.Component {
     }, 1000);
   }
   handleSendCode = () => {
+    this.setState({confirmResult: 'dummy'});
     // Request to send OTP
-    // this.initReCaptcha();
+    this.initReCaptcha();
     console.log('Send -');
     if (this.validatePhoneNumber()) {
       console.log('Send Code');
 
-      auth()
-        .signInWithPhoneNumber("+923213924692")
+      firebase
+        .auth()
+        .signInWithPhoneNumber('+923213924692', this.appVerifier)
         .then((confirmResult) => {
           this.setState({confirmResult});
         })
@@ -99,40 +102,77 @@ class PhoneNumberScreen extends React.Component {
       alert('Please enter a 6 digit OTP code.');
     }
   };
+  renderNumberPart() {
+    return (
+      <RegisterProfile>
+        <View
+          style={{width: '100%', alignSelf: 'center', alignItems: 'center'}}>
+          <Spacer vertical={3}></Spacer>
+          {/* <PhoneInputComponent></PhoneInputComponent> */}
+
+          <Item style={{alignSelf: 'center', width: '80%'}}>
+            <TextInput
+              placeholder={'Your Phone Number'}
+              keyboardType="numeric"
+              placeholderTextColor={'#a0a0a0'}
+              keyboardType="phone-pad"
+              value={this.state.phone}
+              onChangeText={(phone) => {
+                this.setState({phone});
+                // this.handleSendCode()
+                // console.log(phone);
+              }}
+              // maxLength={15}
+              editable={this.state.confirmResult ? false : true}></TextInput>
+          </Item>
+          <Spacer vertical={1}></Spacer>
+        </View>
+        <View>
+          <Spacer vertical={3}></Spacer>
+          <Button title={'NEXT'} onPress={this.handleSendCode}></Button>
+        </View>
+      </RegisterProfile>
+    );
+  }
+  renderVerificationPart() {
+    return (
+      <RegisterProfile
+        heading="Enter Verification Code 🔑"
+        subHeading="We sent you a text at 4016010550">
+        <View
+          style={{width: '100%', alignSelf: 'center', alignItems: 'center'}}>
+          <Spacer vertical={3}></Spacer>
+          <Item style={{alignSelf: 'center', width: '80%'}}>
+            <TextInput
+              placeholder={'Enter Code'}
+              keyboardType="numeric"
+              placeholderTextColor={'#a0a0a0'}
+              keyboardType="phone-pad"
+              value={this.state.OTP}
+              onChangeText={(OTP) => {
+                this.setState({OTP});
+              }}
+              // maxLength={15}
+              // editable={this.state.confirmResult ? false : true}
+            ></TextInput>
+          </Item>
+          <Spacer vertical={1}></Spacer>
+        </View>
+        <View>
+          <Spacer vertical={3}></Spacer>
+          <Button
+            title={'NEXT'}
+            onPress={() => this.props.navigation.navigate('Snapchat')}></Button>
+        </View>
+      </RegisterProfile>
+    );
+  }
   render() {
     return (
       <View style={styles.mainContainer}>
-        <RegisterProfile>
-          <View
-            style={{width: '100%', alignSelf: 'center', alignItems: 'center'}}>
-            <Spacer vertical={3}></Spacer>
-            {/* <PhoneInputComponent></PhoneInputComponent> */}
-
-            <Item style={{alignSelf: 'center', width: '80%'}}>
-              <TextInput
-                placeholder={'Your Phone Number'}
-                keyboardType="numeric"
-                placeholderTextColor={'#a0a0a0'}
-                keyboardType="phone-pad"
-                value={this.state.phone}
-                onChangeText={(phone) => {
-                  this.setState({phone});
-                  this.handleSendCode()
-                  // console.log(phone);
-                }}
-                // maxLength={15}
-                editable={this.state.confirmResult ? false : true}></TextInput>
-            </Item>
-            <Spacer vertical={1}></Spacer>
-          </View>
-          <View>
-            <Spacer vertical={3}></Spacer>
-            <Button title={'NEXT'} onPress={this.handleSendCode}></Button>
-          </View>
-          <Item style={{alignSelf: 'center'}}>
-            <Input></Input>
-          </Item>
-        </RegisterProfile>
+        {!this.state.confirmResult
+          ? this.renderNumberPart()
+          : this.renderVerificationPart()}
       </View>
     );
   }
